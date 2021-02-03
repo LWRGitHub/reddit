@@ -17,7 +17,7 @@ app.get("/", function(req,res){
 })
 
 app.get("/posts/new", function(req,res){
-    return res.render("posts-new")
+    return res.render("layouts/posts-new")
 })
 
 
