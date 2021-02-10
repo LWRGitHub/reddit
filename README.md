@@ -11,6 +11,8 @@ This is a copy of the website Reddit done from scrach.
 - express-handlebars
 - body-parser
 - Bootstrap
+- Mocha
+- chai
 
 ## Install/Setup
 
