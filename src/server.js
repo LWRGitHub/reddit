@@ -3,7 +3,7 @@ const path = require("path");
 const express = require('express');
 const exphbs  = require('express-handlebars');
 const app = express();
-require('./controllers/posts.js')(app);
+
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 // Set db
@@ -31,6 +31,7 @@ app.get("/posts/new", function(req,res){
     return res.render("layouts/posts-new")
 })
 
+require('./controllers/posts.js')(app);
 
 // Start Server
 app.listen(process.env.PORT, () => {

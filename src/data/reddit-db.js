@@ -2,14 +2,15 @@
 const mongoose = require("mongoose");
 assert = require("assert");
 
-const url = "mongodb://localhost/reddit-db";
+const url = "mongodb://localhost:27017/test";
 mongoose.Promise = global.Promise;
 mongoose.connect(
   url,
-  { useNewUrlParser: true },
+  { useNewUrlParser: true,
+    useUnifiedTopology: true },
   function(err, db) {
     assert.equal(null, err);
-    console.log("Connected successfully to database");
+    console.log(`Connected successfully to database at port ${db.connection.port}`);
 
     // db.close(); turn on for testing
   }
