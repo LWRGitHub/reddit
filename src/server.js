@@ -31,6 +31,16 @@ app.get("/posts/new", function(req,res){
     return res.render("layouts/posts-new")
 })
 
+app.get('/', (req, res) => {
+    Post.find({}).lean()
+        .then(posts => {
+            res.render('posts-index', { posts });
+        })
+        .catch(err => {
+            console.log(err.message);
+        })
+})
+
 require('./controllers/posts.js')(app);
 
 // Start Server
