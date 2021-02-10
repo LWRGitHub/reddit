@@ -3,9 +3,13 @@ const path = require("path");
 const express = require('express');
 const exphbs  = require('express-handlebars');
 const app = express();
-
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
+
+app.use(cookieParser());
+
 // Set db
 require('./data/reddit-db');
 
@@ -43,6 +47,7 @@ app.get('/', (req, res) => {
 
 require('./controllers/posts.js')(app);
 require('./controllers/comments.js')(app);
+require('./controllers/auth.js')(app);
 
 // Start Server
 app.listen(process.env.PORT, () => {
