@@ -6,12 +6,13 @@
     {{!-- comments on posts --}}
     {{#each post.comments}}
       <p>{{this.content}}</p>
+      <p class="text-right">{{this.author.username}}</p>
     {{/each}}
     <form action="/posts/{{post._id}}/comments" method="post">
-        <textarea class='form-control' name="content" placeholder="Comment"></textarea>
-        <div class="text-right">
-            <button type="submit" class="btn btn-primary">Save</button>
-        </div>
+      <textarea class='form-control' name="content" placeholder="Comment"></textarea>
+      <div class="text-right">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
     </form>
   </div>
 </div>
