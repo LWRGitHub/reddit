@@ -2,6 +2,7 @@ const User = require("../models/user");
 const jwt = require('jsonwebtoken');
 
 module.exports = (app) => {
+    
     // SIGN UP POST
     app.post("/sign-up", (req, res) => {
         // Create User and JWT
@@ -21,4 +22,11 @@ module.exports = (app) => {
             return res.status(400).send({ err: err });
         });
     });
+
+    // LOGOUT
+    app.get('/logout', (req, res) => {
+        res.clearCookie('nToken');
+        res.redirect('/');
+    });
+
 }
