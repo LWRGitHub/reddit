@@ -20,6 +20,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Add after body parser initialization!
 app.use(expressValidator());
 
+app.use(express.static('public'));
+
 app.engine('handlebars', exphbs({
     layoutsDir: __dirname + '/views/layouts',
     defaultLayout: 'main'
