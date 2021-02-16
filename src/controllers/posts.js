@@ -7,8 +7,8 @@ module.exports = (app) => {
   app.get('/', (req, res) => {
     var currentUser = req.user;
     // res.render('home', {});
-    console.log("Home-pg")
-    console.log(req.user);
+    // console.log("Home-pg")
+    // console.log(req.user);
     Post.find({})
     .then(posts => {
       res.render('posts-index', { posts, currentUser });
