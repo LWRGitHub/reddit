@@ -29,23 +29,24 @@ app.engine('handlebars', exphbs({
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
 
-app.get("/", function(req,res){
-    return res.render("index")
-})
+// app.get("/", function(req,res){
+//     return res.render("index")
+// })
 
-app.get("/posts/new", function(req,res){
-    return res.render("layouts/posts-new")
-})
+// app.get("/posts/new", function(req,res){
+//     return res.render("layouts/posts-new")
+// })
 
-app.get('/', (req, res) => {
-    Post.find({}).lean()
-        .then(posts => {
-            res.render('posts-index', { posts });
-        })
-        .catch(err => {
-            console.log(err.message);
-        })
-})
+// app.get('/', (req, res) => {
+//     const currentUser = req.user
+//     Post.find({}).lean()
+//         .then(posts => {
+//             res.render('posts-index', { posts, currentUser });
+//         })
+//         .catch(err => {
+//             console.log(err.message);
+//         })
+// })
 
 var checkAuth = (req, res, next) => {
     console.log("Checking authentication");
@@ -56,7 +57,6 @@ var checkAuth = (req, res, next) => {
         var decodedToken = jwt.decode(token, { complete: true }) || {};
         req.user = decodedToken.payload;
     }
-  
     next();
 };
 app.use(checkAuth);

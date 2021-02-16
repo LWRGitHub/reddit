@@ -8,6 +8,10 @@
                 <input type="text" name="title" class="form-control" id="post-title" placeholder="Title">
             </div>
             <div class="form-group">
+                <label for="post-title">Author ID</label>
+                <input type="text" name="author" class="form-control" id="post-author" value="{{ currentUser._id }}">
+            </div>
+            <div class="form-group">
                 <label for="post-url">Url</label>
                 <input type="url" name="url" class="form-control" id="post-url" placeholder="https://www.google.com">
             </div>

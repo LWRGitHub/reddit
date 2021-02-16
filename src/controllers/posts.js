@@ -7,14 +7,20 @@ module.exports = (app) => {
   app.get('/', (req, res) => {
     var currentUser = req.user;
     // res.render('home', {});
-    console.log(req.cookies);
-    Post.find({}).lean().populate('author')
+    console.log("Home-pg")
+    console.log(req.user);
+    Post.find({})
     .then(posts => {
       res.render('posts-index', { posts, currentUser });
       // res.render('home', {});
     }).catch(err => {
       console.log(err.message);
     })
+  })
+
+  app.get("/posts/new", function(req,res){
+      var currentUser = req.user;
+      return res.render("layouts/posts-new", { currentUser });
   })
 
   // CREATE
