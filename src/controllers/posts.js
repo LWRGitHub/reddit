@@ -9,7 +9,7 @@ module.exports = (app) => {
     // res.render('home', {});
     // console.log("Home-pg")
     // console.log(req.user);
-    Post.find({})
+    Post.find({}).lean()
     .then(posts => {
       res.render('posts-index', { posts, currentUser });
       // res.render('home', {});
