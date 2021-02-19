@@ -11,11 +11,11 @@
                     </div>
 
                     <form class="vote-up" data-id="{{this._id}}">
-                        <button class="rounded border-0" type="submit">Vote Up</button>
+                        <button class="rounded border-0" type="submit">Vote Up {{this.upVotes.length}}</button>
                     </form>
-                    
+                    <small>{{this.voteScore}}</small>
                     <form class="vote-down" data-id="{{this._id}}">
-                        <button class="rounded border-0"type="submit">Vote Down</button>
+                        <button class="rounded border-0" type="submit">this many people Voted Down {{this.downVotes.length}}</button>
                     </form>
                 </li>
             {{/each}}
